@@ -1,0 +1,95 @@
+analyze_resume_task:
+  description: >
+    First, use the Resume File Parser tool to read the resume file from this path:
+    {resume_path}
+    
+    Then analyze the resume content and extract structured information.
+    
+    Your analysis must include:
+    1. TECHNICAL SKILLS: Programming languages, frameworks, databases, cloud 
+       platforms, and other technical competencies
+    2. SOFT SKILLS: Communication, leadership, teamwork, problem-solving, etc.
+    3. WORK EXPERIENCE: Job titles, companies, duration, and key accomplishments
+    4. TOOLS & TECHNOLOGIES: Specific software, platforms, and tools mentioned
+    5. KEYWORDS: Industry-specific terms, certifications, and buzzwords
+    6. EDUCATION: Degrees, certifications, and relevant training
+    
+    Be thorough and extract ALL relevant information. Look for both explicitly 
+    stated and implied skills based on the work experience described.
+  expected_output: >
+    A structured analysis containing:
+    - A list of technical skills with proficiency indicators where apparent
+    - A list of soft skills with examples from the resume
+    - A summary of work experience with years of experience
+    - A list of tools and technologies
+    - Important keywords and industry terms
+    - Educational background and certifications
+  agent: resume_analyzer
+
+analyze_job_description_task:
+  description: >
+    First, use the Job URL Scraper tool to fetch the job description from this URL:
+    {job_url}
+    
+    Then analyze the job description content and extract all requirements and 
+    qualifications.
+    
+    Your analysis must include:
+    1. REQUIRED SKILLS: Must-have technical and soft skills
+    2. PREFERRED SKILLS: Nice-to-have qualifications
+    3. EXPERIENCE REQUIREMENTS: Years of experience and types of experience needed
+    4. TECHNICAL REQUIREMENTS: Specific technologies, tools, or platforms required
+    5. RESPONSIBILITIES: Key duties and expectations for the role
+    6. KEYWORDS: Important industry terms and phrases used
+    
+    Clearly distinguish between what is REQUIRED versus what is PREFERRED.
+    Pay attention to phrases like "must have", "required", "preferred", 
+    "nice to have", "bonus if", etc.
+  expected_output: >
+    A structured analysis containing:
+    - Required skills (must-have)
+    - Preferred skills (nice-to-have)
+    - Experience level requirements
+    - Technical requirements and tools
+    - Key responsibilities
+    - Important keywords and industry terms
+  agent: job_description_analyzer
+
+generate_match_analysis_task:
+  description: >
+    Using the resume analysis and job description analysis from the previous 
+    tasks, generate a comprehensive match assessment.
+    
+    Your analysis must include:
+    
+    1. FIT SCORE (0-100):
+       - Calculate based on how well the candidate's skills match requirements
+       - Weight REQUIRED skills more heavily than PREFERRED skills
+       - Consider experience level match
+       - Provide a brief justification for the score
+    
+    2. MATCHING SKILLS:
+       - List skills the candidate has that match the job requirements
+       - Indicate which are required vs preferred matches
+    
+    3. MISSING OR WEAK SKILLS:
+       - List required skills the candidate lacks or appears weak in
+       - List preferred skills that are missing
+       - Prioritize by importance to the role
+    
+    4. RESUME IMPROVEMENT SUGGESTIONS:
+       - Provide 3-5 specific, actionable recommendations
+       - Focus on high-impact changes that could improve the fit score
+       - Suggest keywords to add if relevant experience exists
+       - Recommend how to better highlight existing qualifications
+       - Suggest any quick wins (certifications, courses, etc.)
+    
+    Be honest but constructive in your assessment. The goal is to help the 
+    candidate understand where they stand and what they can do to improve.
+  expected_output: >
+    A comprehensive match report containing:
+    - Fit Score: A number from 0-100 with justification
+    - Matching Skills: Skills that align with requirements
+    - Missing Skills: Gaps that need to be addressed
+    - Resume Improvement Suggestions: 3-5 specific, actionable recommendations
+  agent: match_advisor
