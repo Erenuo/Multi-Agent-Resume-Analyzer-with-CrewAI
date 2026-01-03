@@ -2,3 +2,5 @@ crewai
 requests
 beautifulsoup4
 python-dotenv
+streamlit
+pypdf
