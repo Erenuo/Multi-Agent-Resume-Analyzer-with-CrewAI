@@ -1,6 +1,7 @@
 # Multi-Agent Resume Analyzer
 
 This project is a sophisticated **CrewAI-based system** designed to help candidates optimize their resumes for specific job opportunities. It employs a team of AI agents to analyze your resume, dissect the job description, and provide a detailed match assessment with actionable advice.
+
 [![Open in Hugging Face](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-md.svg)](https://huggingface.co/spaces/Erenuo/resume-analyzer-crewai)
 
 ## 🚀 How It Works
