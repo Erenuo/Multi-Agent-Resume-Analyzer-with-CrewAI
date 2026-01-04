@@ -1,14 +1,3 @@
----
-title: Resume Analyzer
-emoji: 📄
-colorFrom: blue
-colorTo: purple
-sdk: streamlit
-sdk_version: 1.31.0
-app_file: app.py
-pinned: false
----
-
 # Multi-Agent Resume Analyzer
 
 This project is a sophisticated **CrewAI-based system** designed to help candidates optimize their resumes for specific job opportunities. It employs a team of AI agents to analyze your resume, dissect the job description, and provide a detailed match assessment with actionable advice.
